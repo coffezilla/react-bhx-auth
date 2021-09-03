@@ -5,9 +5,16 @@ import {
 	clearLocalStorageAuth,
 } from '../../helpers/handleStorage';
 
-// enpoints collection
-const ENDPOINT_LOGIN = 'http://react-bhx-auth/login.php';
-const ENDPOINT_CHECK_AUTH = 'http://react-bhx-auth/check.php';
+// ENDPOINTS COLLECTION
+// local - APACHE - PHP
+// const ENDPOINT_LOGIN = 'http://react-bhx-auth/login.php';
+// const ENDPOINT_CHECK_AUTH = 'http://react-bhx-auth/check.php';
+
+// online - FROM BHX SITES PLAYGROUND
+const ENDPOINT_LOGIN =
+	'https://www.bhxsites.com.br/playground/api/react-auth/login.php';
+const ENDPOINT_CHECK_AUTH =
+	'https://www.bhxsites.com.br/playground/api/react-auth/check.php';
 
 // interfaces
 export interface IStAuth {
