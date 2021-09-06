@@ -6,8 +6,15 @@ import {
 } from '../../helpers/handleStorage';
 
 // ENDPOINTS COLLECTION
-const ENDPOINT_LOGIN = '/login';
-const ENDPOINT_CHECK_AUTH = '/check-auth';
+// local and server
+// const ENDPOINT_LOGIN = '/login';
+// const ENDPOINT_CHECK_AUTH = '/check-auth';
+
+// for Netlify purpose, the endpoint has to be complete
+const ENDPOINT_LOGIN =
+	'https://www.bhxsites.com.br/playground/api/react-auth/login';
+const ENDPOINT_CHECK_AUTH =
+	'https://www.bhxsites.com.br/playground/api/react-auth/check-auth';
 
 // interfaces
 export interface IStAuth {
