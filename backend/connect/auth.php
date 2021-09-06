@@ -1,9 +1,14 @@
 <?php
+
 // access
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Credentials: true');
 header('Access-Control-Allow-Methods: GET,HEAD,OPTIONS,POST,PUT');
-header('Access-Control-Allow-Headers: Authorization, Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
+header('Access-Control-Allow-Headers: Authorization');
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+
 
 //conecta ao banco
 error_reporting(0);
@@ -78,46 +83,3 @@ function base64UrlEncode ($value) {
 }
 
 
-// 
-function getAuthorizatedUserData($connection, $userEmail, $JWTServerkey, $clientToken) {
-
-    $responseData = array(
-        'status' => '0',
-        'id' => '0',
-        'email' => '0'
-    );
-    $emailValidation = createJWTAuth($userEmail, $JWTServerkey);
-
-    // check if email is correct
-    if('Bearer '.$emailValidation === $clientToken) {
-
-        // find user id
-        $queryUsers = mysqli_query($connection, "SELECT 
-        usr_id,
-        usr_email
-        FROM users
-        WHERE usr_email = '{$userEmail}' AND usr_status = 1
-        ORDER BY usr_id
-        DESC
-        LIMIT 1") or die ("User Not Found");
-
-        // check if user was found
-        if (mysqli_num_rows ($queryUsers) > 0) {
-            $dataUser = mysqli_fetch_assoc($queryUsers);
-            $responseData['status'] = 1;
-            $responseData['id'] = $dataUser['usr_id'];
-            $responseData['email'] = $dataUser['usr_email'];
-        } else {
-
-            // no user
-            $responseData['status'] = 2;
-        }
-
-    } else {
-        
-        // not auth
-        $responseData['status'] = 2;
-    }
-
-    return $responseData;
-}

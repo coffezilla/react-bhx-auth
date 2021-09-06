@@ -46,6 +46,17 @@ Even though is not the main purpose, inside this project you will find a backend
 
 You can put this folder inside your [localhost](http://localhost) and change the endpoint inside the components folder. The default value for this is pointing to some BHX Sites path with the same file but you can do this locally or even try use NodeJS instead of PHP (Apache).
 
+### Htaccess
+
+PHP - Apache: In order to make the authorization call using apache, provide the htaccess configuration in the header:
+
+```
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    SetEnvIf Authorization .+ HTTP_AUTHORIZATION=$0
+</IfModule>
+```
+
 ### Fake data inside PHP
 
 For testing purposes you will need to put **foo@mail.com** as e-mail and **123** as password.

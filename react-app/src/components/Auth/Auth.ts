@@ -6,15 +6,8 @@ import {
 } from '../../helpers/handleStorage';
 
 // ENDPOINTS COLLECTION
-// local - APACHE - PHP
-// const ENDPOINT_LOGIN = 'http://react-bhx-auth/login.php';
-// const ENDPOINT_CHECK_AUTH = 'http://react-bhx-auth/check.php';
-
-// online - FROM BHX SITES PLAYGROUND
-const ENDPOINT_LOGIN =
-	'https://www.bhxsites.com.br/playground/api/react-auth/login.php';
-const ENDPOINT_CHECK_AUTH =
-	'https://www.bhxsites.com.br/playground/api/react-auth/check.php';
+const ENDPOINT_LOGIN = '/login';
+const ENDPOINT_CHECK_AUTH = '/check-auth';
 
 // interfaces
 export interface IStAuth {
