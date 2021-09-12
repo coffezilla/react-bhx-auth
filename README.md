@@ -6,6 +6,9 @@ There's a backend folder inside the project with PHP pages (Apache server) for l
 
 The token is saved locally using [local storage](https://developer.mozilla.org/pt-BR/docs/Web/API/Window/localStorage).
 
+## Dependencies
+- Axios
+
 ## Feat
 
 - ReactJS with create-react-app
